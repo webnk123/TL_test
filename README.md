@@ -21,11 +21,11 @@ DB_NAME=test_db
 DB_USER=test_user
 DB_PASSWORD=test_password
 ```
-3)docker compose up --build / docker-compose up -build  
+3) ```docker compose up --build / docker-compose up -build```  
 4) можно запустить скрипт генерации тестовых данныз  
-4.1) docker exec -it {id контейнера} back  
-4.2) python manage.py generate_test_data  
-4)http://127.0.0.1:8000/department/tree/  
+4.1) ```docker exec -it {id контейнера} bash```   
+4.2) ```python manage.py generate_test_data```  
+4) ```http://127.0.0.1:8000/department/tree/```  
 
 Суть задания: бэк и фронт (шаблон с bootstrap) древовидной структуры отделов и списка сотрудников.
 
