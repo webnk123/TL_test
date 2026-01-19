@@ -2,8 +2,8 @@
 <img width="3154" height="1642" alt="image_test" src="https://github.com/user-attachments/assets/0fc5bec5-f6b5-42b4-b9ea-85d44553d956" />
 
 ## Запуск
-1)спулить репозиторию
-2)создать в корне .env файл и добавить туда переменные окружение
+1)спулить репозиторию  
+2)создать в корне .env файл и добавить туда переменные окружение  
 например:
 ```
 DJANGO_SECRET_KEY=django-insecure-9d3aee3b2e6241d0b9cfb72f8e0986af3d7c1d2c14e5a72f8b
@@ -21,11 +21,11 @@ DB_NAME=test_db
 DB_USER=test_user
 DB_PASSWORD=test_password
 ```
-3)docker compose up --build / docker-compose up -build
-4) можно запустить скрипт генерации тестовых данныз
-4.1) docker exec -it {id контейнера} back
-4.2) python manage.py generate_test_data
-4)http://127.0.0.1:8000/department/tree/
+3)docker compose up --build / docker-compose up -build  
+4) можно запустить скрипт генерации тестовых данныз  
+4.1) docker exec -it {id контейнера} back  
+4.2) python manage.py generate_test_data  
+4)http://127.0.0.1:8000/department/tree/  
 
 Суть задания: бэк и фронт (шаблон с bootstrap) древовидной структуры отделов и списка сотрудников.
 
