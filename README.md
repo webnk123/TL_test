@@ -3,7 +3,8 @@
 Суть задания: бэк и фронт (шаблон с bootstrap) древовидной структуры отделов и списка сотрудников.
 
 
-Стек: Python3.12, Django6.0.1, Postgres, Bootstrap5
+Стек: Python3.12, Django6.0.1, Postgres, Bootstrap5.
+
 Используется библиотека https://github.com/feincms/django-tree-queries для создания древовидной структуры отделов
 
 ```
