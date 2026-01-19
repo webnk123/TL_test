@@ -1,4 +1,5 @@
 # Тестовое задание для ТЛ групп
+<img width="3154" height="1642" alt="image_test" src="https://github.com/user-attachments/assets/0fc5bec5-f6b5-42b4-b9ea-85d44553d956" />
 
 Суть задания: бэк и фронт (шаблон с bootstrap) древовидной структуры отделов и списка сотрудников.
 
