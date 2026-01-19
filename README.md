@@ -22,7 +22,7 @@ DB_USER=test_user
 DB_PASSWORD=test_password
 ```
 3) ```docker compose up --build / docker-compose up -build```  
-4) можно запустить скрипт генерации тестовых данныз  
+4) можно запустить скрипт генерации тестовых данных  
 4.1) ```docker exec -it {id контейнера} bash```   
 4.2) ```python manage.py generate_test_data```  
 4) ```http://127.0.0.1:8000/department/tree/```  
