@@ -2,6 +2,7 @@ from django.views.generic import TemplateView
 
 from .models import Department, Employee
 
+
 class TreeView(TemplateView):
     template_name = 'department/tree.html'
 
