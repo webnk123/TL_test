@@ -27,7 +27,7 @@ DB_PASSWORD=test_password
 4.2) ```python manage.py generate_test_data```  
 4) ```http://127.0.0.1:8000/department/tree/```  
 
-Суть задания: бэк и фронт (шаблон с bootstrap) древовидной структуры отделов и списка сотрудников.
+## Суть задания: бэк и фронт (шаблон с bootstrap) древовидной структуры отделов и списка сотрудников.
 
 
 Стек: Python3.12, Django6.0.1, Postgres, Bootstrap5.
