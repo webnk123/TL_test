@@ -25,6 +25,7 @@ class Department(TreeNode): <-------
         return " → ".join(anc.name for anc in self.ancestors(include_self=True))
 ```
 ##Подход к решению задачи ##
+
 Cразу префетчим сотрудников, чтобы в шаблоне не было N+1 запросов.
 ```
 #views.py
