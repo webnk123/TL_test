@@ -1,0 +1,65 @@
+version: '3'
+
+services:
+  
+  # PostgreSQL database
+  postgres_test:
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    networks:
+      - mynetwork
+    container_name: "test_pg"
+
+
+  # Django web application
+  django_test:
+    build:
+      context: ./test_project
+    working_dir: /code
+    volumes:
+      - ./test_project:/code
+    command: 
+      - bash
+      - -c
+      - |
+        pip install -r /code/requirements.txt
+        python /code/manage.py migrate
+        python /code/manage.py createsuperuser --noinput --username=admin --email=admin@example.com
+        python /code/manage.py collectstatic
+        python /code/manage.py runserver 0.0.0.0:8000
+    depends_on:
+      postgres_test:
+        condition: service_healthy
+    ports:
+      - "8000:8000"
+    networks:
+      - mynetwork
+    environment:
+      DJANGO_SECRET_KEY: ${DJANGO_SECRET_KEY}
+      DEBUG: ${DEBUG:-0}
+      ALLOWED_HOSTS: ${ALLOWED_HOSTS:-localhost,127.0.0.1}
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_HOST: ${POSTGRES_HOST:-postgres_test}
+      POSTGRES_PORT: ${POSTGRES_PORT:-5432}
+      DATABASE_URL: postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST:-postgres_test}:${POSTGRES_PORT:-5432}/${POSTGRES_DB}
+    container_name: "test_django"
+
+
+networks:
+  mynetwork:
+
+volumes:
+  pg_data:
+
